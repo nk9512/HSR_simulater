@@ -1,4 +1,8 @@
 # StarRail Theoritical & Max damage calculator
+fire = 0
+ice = 1
+wind = 2
+physic = 3
 
 def registance_coefficient(week_attribute, resist_attribute, character_attribute):
     

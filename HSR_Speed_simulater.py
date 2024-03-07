@@ -26,6 +26,7 @@ def speed_simulate(character_speed, character_name, range_round):
                 Attacker_AP = 0
                 acted_count[0] += 1
                 print(character_name[0],round)
+    print(" 総行動回数")
     print(character_name[0],acted_count[0])
     print(character_name[1],acted_count[1])
 

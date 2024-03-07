@@ -1,5 +1,7 @@
 # How to HSR simulater 
+
 そんなものはない
+
 ほんとに大したものじゃないから期待しないで
 
 ## speed_simulator は利用可能です。

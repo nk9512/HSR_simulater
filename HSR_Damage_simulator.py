@@ -1,12 +1,12 @@
 # StarRail Theoritical & Max damage calculator
-from charStatus import *
-#enemy status define
-Jingliu = charStatus()
+from HSR_simulater import charStatus as CS
+
+Jingliu = CS.charStatus()
 Jingliu.setJingliu()
 
-print(Jingliu.AttackValue())
+print(Jingliu.Attack)
 
-
+#enemy status define
 enemy_week_type = 0
 enemy_resist_type = 0
 enemy_level = 90
@@ -33,13 +33,19 @@ def defence_coefficient(character_level, enemy_level, debuff_defence, buff_throu
     return 1 - (enemy_defence / (enemy_defence + 200 + 10 * character_level))
 
 def registance_coefficient(week_type, resist_type, character_type, buff_type_through):
-    if int(week_type / character_type) == 1:
+    if int(week_type / character_type) % 10 == 1:
         return 1 + buff_type_through / 100
     
-    if int(resist_type / character_type) == 1:
+    if int(resist_type / character_type) % 10 == 1:
         return 1 + buff_type_through / 100 - 0.4
     
     return 1 + buff_type_through / 100 - 0.2
+
+def IsBreak(Is_Enemy_break):
+    if Is_Enemy_break == True:
+        return 1.0
+    else:
+        return 0.9
 
 def SkillDMG(self, BaseAttack, BaseHP, BaseDefence, IsBreak, EnemyType):
     if self.name == 'Jingliu':

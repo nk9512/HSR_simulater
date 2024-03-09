@@ -21,9 +21,6 @@ class charStatus:
     SkillDMGRate = 0
     UltimateDMGRate = 0
 
-    def AttackValue(self):
-        return self.Attack
-
     def setJingliu(self):       #鏡流
         self.name = 'jingliu'
         self.type = ice

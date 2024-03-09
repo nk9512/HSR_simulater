@@ -1,36 +1,51 @@
 # StarRail Theoritical & Max damage calculator
-fire = 0
-ice = 1
-wind = 2
-physic = 3
+from charStatus import *
+#enemy status define
+Jingliu = charStatus()
+Jingliu.setJingliu()
 
-def registance_coefficient(week_attribute, resist_attribute, character_attribute):
-    
-    attribute_registance = 1 - 
-    
-    return attribute_registance
+print(Jingliu.AttackValue())
 
-def Theoritical_damage_calc(base_multiplar, attack_power, crit_damagactere, crit_rate, buff_damage, coefficient_of_defence, coefficient_of_registance, bool_break):
-    base_damage = attack_power * base_multiplar
-    
-    crit_damage /= 100
-    crit_rate /= 1
-    Theoritical_of_crit = 1 + crit_damage * crit_rate
-    
-    character_damage = base_damage * Theoritical_of_crit * buff_damage
-    Theoritical_damage = character_damage * coefficient_of_registance
-    return Theoritical_damage
 
-Crit_damage = 210
-Crit_rate = 35
-Attack_power = 2250
-base_multiplar = 0
+enemy_week_type = 0
+enemy_resist_type = 0
+enemy_level = 90
+Is_enemy_break = False
 
-buff_damage = 48.8
+#buff define
+buff_taking_damage = 0
+buff_through_type = 0
+buff_through_defence = 0
 
+#debuff define
 debuff_defence = 0
-debuff_registace = 0
+debuff_taken_damage = 0
 
-defensive_value = 0
+def Crit_coefficient(Crit_damage, Crit_rate):
+    return (Crit_damage / 100) * (Crit_rate / 100)
 
-Theoritical_damage_calc(base_multiplar, Crit_damage,Crit_rate,Attack_power,buff_damage,defensive_value,debuff_defence,debuff_registace)
+def defence_coefficient(character_level, enemy_level, debuff_defence, buff_through_defence):
+    defence_through_rate = (debuff_defence + buff_through_defence) / 100
+    if defence_through_rate > 1:
+        defence_through_rate = 1
+    
+    enemy_defence = (200 + 10 * enemy_level) * (1 - defence_through_rate)
+    return 1 - (enemy_defence / (enemy_defence + 200 + 10 * character_level))
+
+def registance_coefficient(week_type, resist_type, character_type, buff_type_through):
+    if int(week_type / character_type) == 1:
+        return 1 + buff_type_through / 100
+    
+    if int(resist_type / character_type) == 1:
+        return 1 + buff_type_through / 100 - 0.4
+    
+    return 1 + buff_type_through / 100 - 0.2
+
+def SkillDMG(self, BaseAttack, BaseHP, BaseDefence, IsBreak, EnemyType):
+    if self.name == 'Jingliu':
+        self.Attack += BaseAttack * 1.8
+        self.CritRate += 0.5
+    
+    if self.name == 'DanHeng_ILB':
+        self.BuffTakingDMG += 0.1
+        self.CritDMG += 0.12

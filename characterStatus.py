@@ -23,11 +23,10 @@ class charStatus:
     SkillDMGRate = 0
     UltimateDMGRate = 0
     
-    def __init__(self, name):
-        self._name = name
-        return name
+    def __init__(self) -> None:
+        pass
     
-    def set(self,name):
+    def set(self, name):
         if name == 'Jingliu':       #鏡流
             self.name = 'Jingliu'
             self.type = ice

@@ -3,7 +3,7 @@ from HSR_simulater import characterStatus as CS
 from HSR_simulater import enemyStatus as ES
 
 Jingliu = CS.charStatus()
-Jingliu.set(Jingliu)
+Jingliu.set('Jingliu')
 
 print(Jingliu.Attack)
 

@@ -22,7 +22,11 @@ class charStatus:
     buffThroughDefence = 0
     SkillDMGRate = 0
     UltimateDMGRate = 0
-
+    
+    def __init__(self, name):
+        self._name = name
+        return name
+    
     def set(self,name):
         if name == 'Jingliu':       #鏡流
             self.name = 'Jingliu'
@@ -53,7 +57,7 @@ class charStatus:
             self.Speed = 115
             self.skillDMGRate = 2.2
             self.ultimateDMGRate = 4.25
-
+        
         if name == 'Blade':         #刃
             self.name = 'Blade'
             self.type = wind
@@ -73,7 +77,7 @@ class charStatus:
             self.Speed = 109
             self.skillDMGRate = 3.5
             self.ultimateDMGRate = 2.2
-
+        
         if name == 'Ardenti':       #アルジェンティ
             self.name = 'Ardenti'
             self.type = physical

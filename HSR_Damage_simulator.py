@@ -1,5 +1,5 @@
 # StarRail Theoritical & Max damage calculator
-from HSR_simulater import charStatus as CS
+from HSR_simulater import characterStatus as CS
 from HSR_simulater import enemyStatus as ES
 
 Jingliu = CS.charStatus()

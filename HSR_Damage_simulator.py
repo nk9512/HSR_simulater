@@ -9,7 +9,7 @@ Jingliu.set('Jingliu')
 print(Jingliu.Attack)
 
 LCStatus = LS.LCStatus()
-LCStatus.set('Jingliu')
+LCStatus.set(Jingliu)
 
 print(Jingliu.Attack)
 

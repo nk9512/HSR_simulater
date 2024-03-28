@@ -1,9 +1,17 @@
 # StarRail Theoritical & Max damage calculator
 import characterStatus as CS
 import enemyStatus as ES
+import LightConeStatus as LS
 
 Jingliu = CS.charStatus()
 Jingliu.set('Jingliu')
+
+print(Jingliu.Attack)
+
+LCStatus = LS.LCStatus()
+LCStatus.set('Jingliu')
+
+print(Jingliu.Attack)
 
 deer = ES.enemyStatus()
 deer.set('deer')
